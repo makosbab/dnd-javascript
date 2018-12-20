@@ -1,0 +1,62 @@
+[
+    {
+      "nev": "Aboleth",
+      "meret": "Óriási",
+      "tipus": "Rendellenesség",
+      "tipus_modosito": "Vízi",
+      "tulajdonsagok": 
+      [
+        {
+          "nev" : "Erő",
+          "pont" : 26
+        },
+        {
+          "nev" : "Ügy",
+          "pont" : 12
+        },
+        {
+          "nev" : "Áll",
+          "pont" : 20
+        },
+        {
+          "nev" : "Int",
+          "pont" : 15
+        },
+        {
+          "nev" : "Böl",
+          "pont" : 17
+        },
+        {
+          "nev" : "Kar",
+          "pont" : 17
+        }
+      ],
+      "jartassagok": "Koncentráció +16",
+      "eletero_dobas": "8d8+40 (76 ép)",
+      "kezdemenyezes": "+1 (Ügy)",
+      "vf": "16 (-2 termet, +1 Ügy, +7 természetes)",
+      "mentok": [
+        {
+          "nev": "Szív",
+          "ertek" : 7
+        },
+        {
+          "nev": "Gyors",
+          "ertek" : 3
+        },
+        {
+          "nev": "Akarat",
+          "ertek" : 11
+        }
+      ],
+      "kihivasi_ertek": 7,
+      "tamadasok": "4 csáp +12 kh.",
+      "sebzes": "Csáp 1d6+9 és átalakítás",
+      "oldal_eleres": "10 x 20 / 10 láb",
+      "kulonleges_tamadasok": "Átalakítás, pszionika, rabszolgaság",
+      "kulonleges_kepessegek": "Nyálkafelhő",
+      "sebesseg": "10 láb, úszva 60 láb",
+      "kepessegek": "Éberség, Harci Alkalmazások, Vasakarat",
+      "fejlesztes": "9-16 ÉK (Óriási), 17-24 ÉK (Hatalmas)"
+    }
+  ]
