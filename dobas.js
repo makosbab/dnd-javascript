@@ -1,4 +1,82 @@
-const regexDobas = /(\d+)d(\d{2|3|4|6|8|10|20|100})(?:x(\d)+)?([\+|\-]\d+)?/g
+"use strict";
+const regexDobas = /(\d+)d(\d{2|3|4|6|8|10|20|100})(?:x(\d)+)?([\+|\-]\d+)?/gi
+
+var meretJSON = 
+[
+  {
+    "regi_meret": "Apró",
+    "uj_meret": "Pöttöm",
+    "ero": 0,
+    "ugy": -2,
+    "all": 0,
+    "term_vertezet": 0,
+    "vf_tamadas": -4
+  },
+  {
+    "regi_meret": "Pöttöm",
+    "uj_meret": "Pici",
+    "ero": 2,
+    "ugy": -2,
+    "all": 0,
+    "term_vertezet": 0,
+    "vf_tamadas": -2
+  },
+  {
+    "regi_meret": "Pici",
+    "uj_meret": "Kicsi",
+    "ero": 4,
+    "ugy": -2,
+    "all": 0,
+    "term_vertezet": 0,
+    "vf_tamadas": -1
+  },
+  {
+    "regi_meret": "Kicsi",
+    "uj_meret": "Közepes",
+    "ero": 4,
+    "ugy": -2,
+    "all": 2,
+    "term_vertezet": 0,
+    "vf_tamadas": -1
+  },
+  {
+    "regi_meret": "Közepes",
+    "uj_meret": "Nagy",
+    "ero": 8,
+    "ugy": -2,
+    "all": 4,
+    "term_vertezet": 2,
+    "vf_tamadas": -1
+  },
+  {
+    "regi_meret": "Nagy",
+    "uj_meret": "Óriási",
+    "ero": 8,
+    "ugy": -2,
+    "all": 4,
+    "term_vertezet": 3,
+    "vf_tamadas": -1
+  },
+  {
+    "regi_meret": "Óriási",
+    "uj_meret": "Hatalmas",
+    "ero": 8,
+    "ugy": 0,
+    "all": 4,
+    "term_vertezet": 4,
+    "vf_tamadas": -2
+  },
+  {
+    "regi_meret": "Hatalmas",
+    "uj_meret": "Gigászi",
+    "ero": 8,
+    "ugy": 0,
+    "all": 4,
+    "term_vertezet": 5,
+    "vf_tamadas": -4
+  }
+]
+
 var szornyekJSON = 
 [
     {
@@ -106,14 +184,14 @@ var szornyekJSON =
       "fejlesztes": 
       [
           {
-              "mix": 9,
+              "min": 9,
               "max": 16,
-              "valtozat": "Óriási"
+              "meret": "Óriási"
           },
           {
-            "mix": 17,
+            "min": 17,
             "max": 24,
-            "valtozat": "Hatalmas"
+            "meret": "Hatalmas"
           } 
       ]
     }
@@ -126,11 +204,6 @@ var Dobas = function (db, oldalak, szorzo, bonusz) {
 
 }
 
-
-var eleteroDobas = function(eleteroDobas){
-    this.dobas = new Dobas()
-    this.eletPont = 0
-}
 function dobj(dobas) {
     var eredmeny = 0;
     i = 0;
@@ -144,36 +217,73 @@ function dobj(dobas) {
 }
 
 var dobjUjra = dobas => {
-    var eredmeny = 0;
-    i = 0;
+    let eredmeny = 0;
+    let i = 0;
     while (i < dobas.db) {
-        dobott_ertek = Math.floor(Math.random() * dobas.oldalak) + 1;
+        let dobott_ertek = Math.floor(Math.random() * dobas.oldalak) + 1;
         eredmeny += dobott_ertek;
         i++;
     }
-    eredmeny += dobas.bonusz
+    eredmeny += dobas.bonusz;
     return eredmeny;
 }
 
 
 var Tulajdonsag = function (rovidNev, ertek) {
     
-    this.rovidNev = rovidNev
-    this.ertek = ertek
+    this.rovidNev = rovidNev;
+    this.ertek = ertek;
     // this.tulModosito = Math.floor((this.ertek - 10 ) / 2)
-    this.tulModosito = function() {return Math.floor((this.ertek - 10) / 2)}
+    this.tulModosito = function() {return Math.floor((this.ertek - 10) / 2)};
    
 }
 
-var found = regexDobas.exec("8d6+45");
-dobas = new Dobas(found[1], found[2], found[3], found[4]);
-console.log(dobjUjra(dobas));
-var tulajdonsag = new Tulajdonsag("Áll", 19)
-console.log(tulajdonsag.tulModosito())
-tulajdonsag.ertek = 28
-console.log(tulajdonsag.ertek)
-console.log(tulajdonsag.tulModosito())
+function fejlessz(szorny, ujSzint){
+  szorny.szint = ujSzint;
+  if(meretValtozott(szorny)) {
+    noveldMeretet(szorny);
+  }
+  
+}
 
-tesztSzorny = szornyekJSON[0]
-console.log(tesztSzorny.tulajdonsagok[1].nev)
-tesztSzorny.szint = 6
+function meretValtozott(szorny){
+  let talalat = szorny.fejlesztes.find(function(valtozat){
+    return (szorny.szint > valtozat.min) && (szorny.szint < valtozat.max)
+  });
+  console.log(talalat);
+  return (talalat.meret != szorny.meret);
+}
+
+function noveldMeretet(szorny){
+  for (let i = 0; i < szorny.fejlesztes.length; i++) {
+    const f = array[i];
+    if((szorny.szint > valtozat.min) && (szorny.szint < valtozat.max)){
+      if(valtozat.meret != szorny.meret){
+        szorny.meret = valtozat.meret;
+        break;
+      }    
+    } 
+  }
+}
+
+function modositsUjMeretSzerint(szorny){
+  let ujMeret = szorny.meret;
+  meretJSON.forEach(meret => {
+    if(meret.uj_meret == ujMeret){
+
+    }
+  });
+
+}
+
+var found = regexDobas.exec("8d6+45");
+regexDobas.lastIndex = 0;
+var dobas = new Dobas(found[1], found[2], found[3], found[4]);
+var tulajdonsag = new Tulajdonsag("Áll", 19);
+tulajdonsag.ertek = 28;
+
+var tesztSzorny = szornyekJSON[0];
+tesztSzorny.szint = regexDobas.exec(tesztSzorny.eletero_dobas.dobas)[1];
+regexDobas.lastIndex = 0;
+//tesztSzorny.eletero_dobas.dobas
+fejlessz(tesztSzorny, 21)
