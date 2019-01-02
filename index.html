@@ -6,9 +6,40 @@
     <title>VueJS teszt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-    <script src="https://cdn.jsdelivr.net/npm/mithril/mithril.js"></script>
-    <script type="text/javascript" src="szornyek.json"></script> 
+    <!--<script type="text/javascript" src="szornyek.json"></script> -->
     <script src="dobas.js"></script>
+    <script type="text/javascript">
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "monsters.json", true);
+        xmlhttp.send();
+
+        xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var monsters = JSON.parse(this.responseText);
+            loadMonster(monsters);
+            
+            }
+        };
+
+        function loadMonster(monsters){
+            return monsters[0];
+        }
+
+        
+        
+/*         var found = regexDobas.exec("8d6+45");
+        regexDobas.lastIndex = 0;
+        var dobas = new Dobas(found[1], found[2], found[3], found[4]);
+        var tulajdonsag = new Tulajdonsag("Áll", 19);
+        tulajdonsag.ertek = 28;
+
+        var tesztSzorny = monsters[0];
+        tesztSzorny.szint = regexDobas.exec(tesztSzorny.eletero_dobas.dobas)[1];
+        regexDobas.lastIndex = 0;
+        //tesztSzorny.eletero_dobas.dobas
+        fejlessz(tesztSzorny, 21) */
+    </script>
+
 </head>
 <body>
     
