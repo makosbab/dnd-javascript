@@ -1,0 +1,100 @@
+[
+    {
+      "name": "Aboleth",
+      "size": "Óriási",
+      "type": "Rendellenesség",
+      "subtype": "Vízi",
+      "abilities":
+      [
+        {
+          "name" : "Erő",
+          "score" : 26
+        },
+        {
+          "name" : "Ügyesség",
+          "score" : 12
+        },
+        {
+          "name" : "Állóképesség",
+          "score" : 20
+        },
+        {
+          "name" : "Intelligencia",
+          "score" : 15
+        },
+        {
+          "name" : "Bölcsesség",
+          "score" : 17
+        },
+        {
+          "name" : "Karizma",
+          "score" : 17
+        }
+      ],
+      "skills": "Koncentráció +16",
+      "hitDice": 
+      {
+        "numOfHitDice" : "8",
+        "typeOfHitDice" : "d8",
+        "bonus" : 40,
+        "avgHitPoints": 76
+      },
+      "initiative": "+1 (Ügy)",
+      "armorClass": 
+      {
+        "class": 16,
+        "modifiers" : 
+        [
+          [-2, "termet"], [1, "Ügy"],  [7, "természetes"]
+        ]
+      },
+      "savingThrows":
+      [
+        {
+          "type": "Szívósság",
+          "baseBonus" : 7
+        },
+        {
+          "type": "Gyors",
+          "baseBonus" : 3
+        },
+        {
+          "type": "Akarat",
+          "baseBonus" : 11
+        }
+      ],
+      "challengeRating": 7,
+      "attacks":
+      {
+        "numOfAttacks": 4,
+        "name": "Csáp",
+        "bonus" : 12,
+        "form" : "kh."
+        
+      },
+      "damage": "Csáp 1d6+9 és átalakítás",
+      "spaceReach":
+      {
+        "width" : 10,
+        "length" : 20,
+        "naturalReach" : 10
+      },
+      "specialAttacks": ["Átalakítás", "pszionika", "rabszolgaság"],
+      "specialQualities": ["Nyálkafelhő"],
+      "speed": "10 láb, úszva 60 láb",
+      "feats": ["Éberség", "Harci Alkalmazások", "Vasakarat"],
+      "advancement":
+      [
+        {
+          "hitDiceMin": 9,
+          "hitDiceMax": 16,
+          "version": "Óriási"
+        },
+        {
+          "hitDiceMin": 17,
+          "hitDiceMax": 24,
+          "version": "Hatalmas"
+        } 
+    ]
+    }
+  ]
