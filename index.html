@@ -3,29 +3,49 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>VueJS teszt</title>
+    <title>DnD Monster Advancer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
     <!--<script type="text/javascript" src="szornyek.json"></script> -->
     <script src="dobas.js"></script>
     <script type="text/javascript">
+
+
+/*     function loadMonster(){
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", "monsters.json", true);
-        xmlhttp.send();
 
         xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var monsters = JSON.parse(this.responseText);
-            loadMonster(monsters);
-            
+            return JSON.parse(this.responseText);
             }
         };
-
-        function loadMonster(monsters){
-            return monsters[0];
+        xmlhttp.open("GET", "monsters.json", true);
+        xmlhttp.send();
+        return xmlhttp.onreadystatechange();
+    } */
+    fetch('monsters.json').then(function(response){
+        return response.json()
         }
+    ).then(function (json) {
+        var monster = json[0];
+        monster.hitPoints = monster.hitDice.avgHitPoints;
+        monster.abilities.forEach(ability => {
+            ability.modifier = Math.floor((ability.score - 10) / 2)
+        });
+        monster.baseAttackModifier = function(){
+            let lookup = creatureImprovement.find(function(impr){
+                return impr.type == monster.type;
+            });
+            return Math.floor(monster.hitDice.numOfHitDice * lookup.attackBonus);
+        }
+        monster.attackModifierMelee = monster.baseAttackModifier() + monster.abilities[0].modifier + sizeModifiers[5].sizeModifier;
+        monster.skillPoints = 0;
+        monster.extraFeats = 0;
 
-        
+        console.log(monster)
+
+        advanceMonster(monster, 20);
+    })
         
 /*         var found = regexDobas.exec("8d6+45");
         regexDobas.lastIndex = 0;
