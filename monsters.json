@@ -31,7 +31,13 @@
           "score" : 17
         }
       ],
-      "skills": "Koncentráció +16",
+      "skills": 
+      [
+        {
+          "name" : "Koncentráció",
+          "score" : 16
+        }
+      ],
       "hitDice": 
       {
         "numOfHitDice" : "8",
@@ -39,7 +45,7 @@
         "bonus" : 40,
         "avgHitPoints": 76
       },
-      "initiative": "+1 (Ügy)",
+      "initiative": 1,
       "armorClass": 
       {
         "class": 16,
