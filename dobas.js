@@ -77,62 +77,246 @@ var meretJSON =
   }
 ]
 
-var Dobas = function (db, oldalak, szorzo, bonusz) {
-    this.db = db;
-    this.oldalak = oldalak;
-    this.szorzo = szorzo;
-    this.bonusz = parseInt(bonusz);
+var creatureImprovement = 
+[
+  {
+    "type": "Alakváltó",
+    "hitDice": "1d8",
+    "attackBonus": 0.75,
+    "goodSaves": "Szívósság, Gyorsaság, Akarat",
+    "skillPoints": 1
 
-}
-
-function dobj(dobas) {
-    var eredmeny = 0;
-    i = 0;
-    while (i < dobas.db) {
-        dobott_ertek = Math.floor(Math.random() * dobas.oldalak) + 1;
-        eredmeny += dobott_ertek;
-        i++;
-    }
-    eredmeny += dobas.bonusz
-    return eredmeny;
-}
-
-var dobjUjra = dobas => {
-    let eredmeny = 0;
-    let i = 0;
-    while (i < dobas.db) {
-        let dobott_ertek = Math.floor(Math.random() * dobas.oldalak) + 1;
-        eredmeny += dobott_ertek;
-        i++;
-    }
-    eredmeny += dobas.bonusz;
-    return eredmeny;
-}
-
-
-var Tulajdonsag = function (rovidNev, ertek) {
-    
-    this.rovidNev = rovidNev;
-    this.ertek = ertek;
-    // this.tulModosito = Math.floor((this.ertek - 10 ) / 2)
-    this.tulModosito = function() {return Math.floor((this.ertek - 10) / 2)};
-   
-}
-
-function fejlessz(szorny, ujSzint){
-  szorny.szint = ujSzint;
-  if(meretValtozott(szorny)) {
-    noveldMeretet(szorny);
+  },
+  {
+    "type": "Állat",
+    "hitDice": "1d8",
+    "attackBonus": 0.75,
+    "goodSaves": "Akarat",
+    "skillPoints": "2"
+  },
+  {
+    "type": "Bestia",
+    "hitDice": "1d10",
+    "attackBonus": 0.75,
+    "goodSaves": "Szívósság, Gyorsaság",
+    "skillPoints": 1
+  },
+  {
+    "type": "Elementál",
+    "hitDice": "1d8",
+    "attackBonus": 0.75,
+    "goodSaves": "Föld : 'Szívósság,Víz : Szívósság, Levegő : Gyorsaság, Tűz : Gyorsaság",
+    "skillPoints": 2
+  },
+  {
+    "type": "Élőhalott",
+    "hitDice": "1d12",
+    "attackBonus": 0.5,
+    "goodSaves": "Szívósság",
+    "skillPoints": 4
+  },
+  {
+    "type": "Fey",
+    "hitDice": "1d6",
+    "attackBonus": 0.5,
+    "goodSaves": "Gyorsaság,Akarat",
+    "skillPoints": 2
+  },
+  {
+    "type": "Féreg",
+    "hitDice": "1d8",
+    "attackBonus": 0.5,
+    "goodSaves": "Szívósság",
+    "skillPoints": "10-13"
+  },
+  {
+    "type": "Humanoid",
+    "hitDice": "1d8",
+    "attackBonus": 0.75,
+    "goodSaves": "Random",
+    "skillPoints": 2
+  },
+  {
+    "type": "Humanoid szörny",
+    "hitDice": "1d8",
+    "attackBonus": 1,
+    "goodSaves": "Gyorsaság,Akarat",
+    "skillPoints": 2
+  },
+  {
+    "type": "Külvilági",
+    "hitDice": "1d8",
+    "attackBonus": 1,
+    "goodSaves": "Szívósság,Gyorsaság,Akarat",
+    "skillPoints": 8
+  },
+  {
+    "type": "Mágikus Bestia",
+    "hitDice": "1d10",
+    "attackBonus": 1,
+    "goodSaves": "Szívósság,Gyorsaság,Akarat",
+    "skillPoints": 8
+  },
+  {
+    "type": "Növény",
+    "hitDice": "1d8",
+    "attackBonus": 1,
+    "goodSaves": "Szívósság",
+    "skillPoints": 2
+  },
+  {
+    "type": "Ooze",
+    "hitDice": "1d10",
+    "attackBonus": 0.75,
+    "goodSaves": "''",
+    "skillPoints": 0,
+  },
+  {
+    "type": "Óriás",
+    "hitDice": "1d8",
+    "attackBonus": 0.75,
+    "goodSaves": "Szívósság",
+    "skillPoints": 1,
+  },
+  {
+    "type": "Rendellenesség",
+    "hitDice": "1d8",
+    "attackBonus": 0.75,
+    "goodSaves": "Szívósság, Gyorsaság, Akarat",
+    "skillPoints": 2,
+  },
+  {
+    "type": "Sárkány",
+    "hitDice": "1d12",
+    "attackBonus": 1,
+    "goodSaves": "Szívósság',Gyorsaság,Akarat",
+    "skillPoints": 6,
+  },
+  {
+    "type": "Szerkezet",
+    "hitDice": "1d10",
+    "attackBonus": 0.75,
+    "goodSaves": "",
+    "skillPoints": 2,
   }
+]
+
+var sizeModifiers = 
+[
+  {
+    "size": "Apró",
+    "sizeModifier": 8
+  },
+  {
+    "size": "Pöttöm",
+    "sizeModifier": 4
+  },
+  {
+    "size": "Pici",
+    "sizeModifier": 2
+  },
+  {
+    "size": "Kicsi",
+    "sizeModifier": 1
+  },
+  {
+    "size": "Közepes",
+    "sizeModifier": 0
+  },
+  {
+    "size": "Nagy",
+    "sizeModifier": -1
+  },
+  {
+    "size": "Óriási",
+    "sizeModifier": -2
+  },
+  {
+    "size": "Hatalmas",
+    "sizeModifier": -4
+  },
+  {
+    "size": "Gigászi",
+    "sizeModifier": -8
+  }
+]
+
+var Roll = function (numDice, sides, multip, bonus) {
+    this.numDice = numDice;
+    this.sides = sides;
+    this.multip = multip;
+    this.bonus = parseInt(bonus);
+
+}
+
+function rollTheDice(roll) {
+    var result = 0;
+    let i = 0;
+    console.log(roll)
+    while (i < roll.numDice) {
+        let rollValue = Math.floor(Math.random() * roll.sides) + 1;
+        result += rollValue;
+        i++;
+    }
+    result += roll.bonus;
+    console.log(result);
+    return result;
+}
+
+function advanceMonster(monster, newLevel){
+  let levelDiff = newLevel - monster.hitDice.numOfHitDice;
+  addSkillPoints(monster, levelDiff);
+
+  if(levelDiff % 3 == 0){
+    addFeats(monster, levelDiff);
+  }
+  updateHitDice(monster, newLevel, levelDiff);
+  checkSizeAndUpdate(monster, newLevel);
+
+/*   if(meretValtozott(monster)) {
+    noveldMeretet(monster);
+  } */
   
 }
 
-function meretValtozott(szorny){
-  let talalat = szorny.fejlesztes.find(function(valtozat){
-    return (szorny.szint > valtozat.min) && (szorny.szint < valtozat.max)
+function addFeats(monster, levelDiff){
+  for(let i=0; i < levelDiff / 3; i++);
+    monster.extraFeats++;
+}
+
+function addSkillPoints(monster, levelDiff){
+  let lookup = creatureImprovement.find(function(impr){
+    return impr.type == monster.type;
   });
-  console.log(talalat);
-  return (talalat.meret != szorny.meret);
+  for (let i = 0; i < levelDiff; i++) {
+    monster.skillPoints += monster.abilities[3].modifier + lookup.skillPoints;
+  }
+}
+
+function updateHitDice(monster, newLevel, levelDiff){
+  let roll = new Roll(
+    levelDiff, 
+    8, 
+    1, 
+    (levelDiff) * monster.abilities[2].modifier
+  );
+
+  monster.hitPoints += rollTheDice(roll);
+
+  monster.hitDice.numOfHitDice = newLevel;
+  monster.hitDice.bonus += (levelDiff) * monster.abilities[2].modifier;
+
+}
+
+function checkSizeAndUpdate(monster, newLevel){
+  let lookup = monster.advancement.find(function(version){
+    return (newLevel > version.hitDiceMin) && (newLevel < version.hitDiceMax)
+  });
+  console.log(lookup)
+  if (lookup.version != monster.size){
+    monster.size = lookup.version;
+  }
+
 }
 
 function noveldMeretet(szorny){
