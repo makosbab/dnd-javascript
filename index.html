@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
     <!--<script type="text/javascript" src="szornyek.json"></script> -->
-    <script src="dobas.js"></script>
+    <script src="roll.js"></script>
+    <script src="advancer.js"></script>
     <script type="text/javascript">
 
 
@@ -30,7 +31,7 @@
         var monster = json[0];
         monster.hitPoints = monster.hitDice.avgHitPoints;
         monster.abilities.forEach(ability => {
-            ability.modifier = Math.floor((ability.score - 10) / 2)
+            ability.modifier = (ability.score) ? Math.floor((ability.score - 10) / 2) : null;
         });
         monster.baseAttackModifier = function(){
             let lookup = creatureImprovement.find(function(impr){
@@ -39,12 +40,10 @@
             return Math.floor(monster.hitDice.numOfHitDice * lookup.attackBonus);
         }
         monster.attackModifierMelee = monster.baseAttackModifier() + monster.abilities[0].modifier + sizeModifiers[5].sizeModifier;
-        monster.skillPoints = 0;
-        monster.extraFeats = 0;
+        adv = new Advancer(monster);
+        console.log(adv.monster)
 
-        console.log(monster)
-
-        advanceMonster(monster, 20);
+        adv.advanceMonster(19);
     })
         
 /*         var found = regexDobas.exec("8d6+45");
