@@ -1,0 +1,122 @@
+[
+    {
+      "type": "Alakváltó",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": "Szívósság, Gyorsaság, Akarat",
+      "skillPoints": 1
+  
+    },
+    {
+      "type": "Állat",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": "Akarat",
+      "skillPoints": "2"
+    },
+    {
+      "type": "Bestia",
+      "hitDice": "1d10",
+      "attackBonus": 0.75,
+      "goodSaves": "Szívósság, Gyorsaság",
+      "skillPoints": 1
+    },
+    {
+      "type": "Elementál",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": "Föld : 'Szívósság,Víz : Szívósság, Levegő : Gyorsaság, Tűz : Gyorsaság",
+      "skillPoints": 2
+    },
+    {
+      "type": "Élőhalott",
+      "hitDice": "1d12",
+      "attackBonus": 0.5,
+      "goodSaves": "Szívósság",
+      "skillPoints": 4
+    },
+    {
+      "type": "Fey",
+      "hitDice": "1d6",
+      "attackBonus": 0.5,
+      "goodSaves": "Gyorsaság,Akarat",
+      "skillPoints": 2
+    },
+    {
+      "type": "Féreg",
+      "hitDice": "1d8",
+      "attackBonus": 0.5,
+      "goodSaves": "Szívósság",
+      "skillPoints": "10-13"
+    },
+    {
+      "type": "Humanoid",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": "Random",
+      "skillPoints": 2
+    },
+    {
+      "type": "Humanoid szörny",
+      "hitDice": "1d8",
+      "attackBonus": 1,
+      "goodSaves": "Gyorsaság,Akarat",
+      "skillPoints": 2
+    },
+    {
+      "type": "Külvilági",
+      "hitDice": "1d8",
+      "attackBonus": 1,
+      "goodSaves": "Szívósság,Gyorsaság,Akarat",
+      "skillPoints": 8
+    },
+    {
+      "type": "Mágikus Bestia",
+      "hitDice": "1d10",
+      "attackBonus": 1,
+      "goodSaves": "Szívósság,Gyorsaság,Akarat",
+      "skillPoints": 8
+    },
+    {
+      "type": "Növény",
+      "hitDice": "1d8",
+      "attackBonus": 1,
+      "goodSaves": "Szívósság",
+      "skillPoints": 2
+    },
+    {
+      "type": "Ooze",
+      "hitDice": "1d10",
+      "attackBonus": 0.75,
+      "goodSaves": "''",
+      "skillPoints": 0
+    },
+    {
+      "type": "Óriás",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": "Szívósság",
+      "skillPoints": 1
+    },
+    {
+      "type": "Rendellenesség",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": "Szívósság, Gyorsaság, Akarat",
+      "skillPoints": 2
+    },
+    {
+      "type": "Sárkány",
+      "hitDice": "1d12",
+      "attackBonus": 1,
+      "goodSaves": "Szívósság',Gyorsaság,Akarat",
+      "skillPoints": 6
+    },
+    {
+      "type": "Szerkezet",
+      "hitDice": "1d10",
+      "attackBonus": 0.75,
+      "goodSaves": "",
+      "skillPoints": 2
+    }
+  ]
