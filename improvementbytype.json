@@ -1,1 +1,158 @@
-{'speed': '10 láb, úszva 60 láb', 'challengeRating': 7, 'advancement': [{'version': 'Óriási', 'hitDiceMin': 9, 'hitDiceMax': 16}, {'version': 'Hatalmas', 'hitDiceMin': 17, 'hitDiceMax': 24}], 'hitDice': {'typeOfHitDice': 'd8', 'numOfHitDice': '8', 'bonus': 40, 'avgHitPoints': 76}, 'attacks': {'numOfAttacks': 4, 'bonus': 12, 'name':'Csáp', 'form': 'kh.'}, 'savingThrows': [{'baseBonus': 7, 'type': 'Szívósság'}, {'baseBonus': 3, 'type': 'Gyorsaság'}, {'baseBonus': 11, 'type': 'Akarat'}], 'hitPoints': 76, 'armorClass': {'modifiers': [[-2, 'termet'], [1, 'Ügy'], [7, 'természetes']], 'class': 16}, 'initiative': 1, 'skills': [{'name': 'Koncentráció', 'score': 16}],'abilities': [{'modifier': 8, 'name': 'Erő', 'score': 26}, {'modifier': 1, 'name': 'Ügyesség', 'score': 12}, {'modifier': 5, 'name': 'Állóképesség', 'score': 20}, {'modifier': 2, 'name': 'Intelligencia', 'score': 15}, {'modifier': 3, 'name': 'Bölcsesség', 'score': 17}, {'modifier': 3, 'name': 'Karizma', 'score': 17}], 'damage': 'Csáp 1d6+9 és átalakítás', 'specialQualities': ['Nyálkafelhő'], 'spaceReach': {'length': 20, 'width': 10, 'naturalReach': 10}, 'name': 'Aboleth', 'specialAttacks': ['Átalakítás', 'pszionika', 'rabszolgaság'], 'size': 'Óriási', 'subtype': 'Vízi', '_id': ObjectId('5c33136e7c30a2df08d176d1'), 'type': 'Rendellenesség', 'feats': ['Éberség', 'Harci Alkalmazások', 'Vasakarat']}
+[
+    {
+      "type": "Alakváltó",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": ["Szívósság", "Gyorsaság", "Akarat"],
+      "extraSkillPoints": 
+      {
+        "base" : 1,
+        "modifier" : null  
+      },
+      "extraFeats": 0.25
+  
+    },
+    {
+      "type": "Állat",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": ["Akarat"],
+      "extraSkillPoints": 
+      {
+         "base" : [10,15],
+         "modifier" : null
+      },
+      "extraFeats": null
+    },
+    {
+      "type": "Bestia",
+      "hitDice": "1d10",
+      "attackBonus": 0.75,
+      "goodSaves": ["Szívósság", "Gyorsaság"],
+      "extraSkillPoints": 1,
+      "extraFeats": null
+    },
+    {
+      "type": "Elementál",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": ["Föld : Szívósság","Víz : Szívósság", "Levegő : Gyorsaság", "Tűz : Gyorsaság"],
+      "extraSkillPoints": 2,
+      "extraFeats": 0.25
+    },
+    {
+      "type": "Élőhalott",
+      "hitDice": "1d12",
+      "attackBonus": 0.5,
+      "goodSaves": ["Akarat"],
+      "extraSkillPoints": 2,
+      "extraFeats": 0.25
+    },
+    {
+      "type": "Fey",
+      "hitDice": "1d6",
+      "attackBonus": 0.5,
+      "goodSaves": ["Gyorsaság","Akarat"],
+      "extraSkillPoints": 2,
+      "extraFeats": 0.25
+    },
+    {
+      "type": "Féreg",
+      "hitDice": "1d8",
+      "attackBonus": 0.5,
+      "goodSaves": "Szívósság",
+      "extraSkillPoints": [10,12],
+      "extraFeats": null
+    },
+    {
+      "type": "Humanoid",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": "Random",
+      "extraSkillPoints": 1,
+      "extraFeats": 0.25
+    },
+    {
+      "type": "Humanoid szörny",
+      "hitDice": "1d8",
+      "attackBonus": 1,
+      "goodSaves": ["Gyorsaság","Akarat"],
+      "extraSkillPoints": 2,
+      "extraFeats": 0.25
+    },
+    {
+      "type": "Külvilági",
+      "hitDice": "1d8",
+      "attackBonus": 1,
+      "goodSaves": "Szívósság,Gyorsaság,Akarat",
+      "extraSkillPoints": 
+      {
+          "base" : 8,
+          "modifier" : "+ Int mód" 
+      },
+      "extraFeats": 0.25
+    },
+    {
+      "type": "Mágikus Bestia",
+      "hitDice": "1d10",
+      "attackBonus": 1,
+      "goodSaves": "Szívósság,Gyorsaság,Akarat",
+      "extraSkillPoints": 8,
+      "extraFeats": 0.25
+    },
+    {
+      "type": "Növény",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": "Szívósság",
+      "extraSkillPoints": 2,
+      "extraFeats": null
+    },
+    {
+      "type": "Ooze",
+      "hitDice": "1d10",
+      "attackBonus": 0.75,
+      "goodSaves": null,
+      "extraSkillPoints": 0,
+      "extraFeats": "Vaklátás"
+    },
+    {
+      "type": "Óriás",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": "Szívósság",
+      "extraSkillPoints": 1,
+      "extraFeats": 0.25
+    },
+    {
+      "type": "Rendellenesség",
+      "hitDice": "1d8",
+      "attackBonus": 0.75,
+      "goodSaves": ["Akarat"],
+      "extraSkillPoints":
+      {
+          "base" : 2,
+          "modifier" : null
+      },
+      "extraFeats": 0.25
+    },
+    {
+      "type": "Sárkány",
+      "hitDice": "1d12",
+      "attackBonus": 1,
+      "goodSaves": ["Szívósság", "Gyorsaság", "Akarat"],
+      "extraSkillPoints":
+      {
+          "base" : 6,
+          "modifier" : "+Int mód"
+      }
+    },
+    {
+      "type": "Szerkezet",
+      "hitDice": "1d10",
+      "attackBonus": 0.75,
+      "goodSaves": null,
+      "extraSkillPoints": null,
+      "extraFeats": null
+    }
+  ]
