@@ -24,6 +24,7 @@
         "special" : "",
         "synergy" : "",
         "restriction" : "",
-        "untrained" : ""
+        "untrained" : "",
+        "tables" : []
   }
 ]
