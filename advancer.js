@@ -6,10 +6,10 @@ var statChangesbySize =
   {
     "oldSize": "Apró",
     "newSize": "Pöttöm",
-    "str": 0,
+    "str": null,
     "dex": -2,
-    "con": 0,
-    "naturalArmor": 0,
+    "con": null,
+    "naturalArmor": null,
     "acAndAttack": -4
   },
   {
@@ -17,8 +17,8 @@ var statChangesbySize =
     "newSize": "Pici",
     "str": 2,
     "dex": -2,
-    "con": 0,
-    "naturalArmor": 0,
+    "con": null,
+    "naturalArmor": null,
     "acAndAttack": -2
   },
   {
@@ -26,8 +26,8 @@ var statChangesbySize =
     "newSize": "Kicsi",
     "str": 4,
     "dex": -2,
-    "con": 0,
-    "naturalArmor": 0,
+    "con": null,
+    "naturalArmor": null,
     "acAndAttack": -1
   },
   {
@@ -36,7 +36,7 @@ var statChangesbySize =
     "str": 4,
     "dex": -2,
     "con": 2,
-    "naturalArmor": 0,
+    "naturalArmor": null,
     "acAndAttack": -1
   },
   {
@@ -61,7 +61,7 @@ var statChangesbySize =
     "oldSize": "Óriási",
     "newSize": "Hatalmas",
     "str": 8,
-    "dex": 0,
+    "dex": null,
     "con": 4,
     "naturalArmor": 4,
     "acAndAttack": -2
@@ -70,7 +70,7 @@ var statChangesbySize =
     "oldSize": "Hatalmas",
     "newSize": "Gigászi",
     "str": 8,
-    "dex": 0,
+    "dex": null,
     "con": 4,
     "naturalArmor": 5,
     "acAndAttack": -4
