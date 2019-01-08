@@ -1,0 +1,74 @@
+[
+  {
+    "oldSize": "Apró",
+    "newSize": "Pöttöm",
+    "str": null,
+    "dex": -2,
+    "con": null,
+    "naturalArmor": null,
+    "acAndAttack": -4
+  },
+  {
+    "oldSize": "Pöttöm",
+    "newSize": "Pici",
+    "str": 2,
+    "dex": -2,
+    "con": null,
+    "naturalArmor": null,
+    "acAndAttack": -2
+  },
+  {
+    "oldSize": "Pici",
+    "newSize": "Kicsi",
+    "str": 4,
+    "dex": -2,
+    "con": null,
+    "naturalArmor": null,
+    "acAndAttack": -1
+  },
+  {
+    "oldSize": "Kicsi",
+    "newSize": "Közepes",
+    "str": 4,
+    "dex": -2,
+    "con": 2,
+    "naturalArmor": null,
+    "acAndAttack": -1
+  },
+  {
+    "oldSize": "Közepes",
+    "newSize": "Nagy",
+    "str": 8,
+    "dex": -2,
+    "con": 4,
+    "naturalArmor": 2,
+    "acAndAttack": -1
+  },
+  {
+    "oldSize": "Nagy",
+    "newSize": "Óriási",
+    "str": 8,
+    "dex": -2,
+    "con": 4,
+    "naturalArmor": 3,
+    "acAndAttack": -1
+  },
+  {
+    "oldSize": "Óriási",
+    "newSize": "Hatalmas",
+    "str": 8,
+    "dex": null,
+    "con": 4,
+    "naturalArmor": 4,
+    "acAndAttack": -2
+  },
+  {
+    "oldSize": "Hatalmas",
+    "newSize": "Gigászi",
+    "str": 8,
+    "dex": null,
+    "con": 4,
+    "naturalArmor": 5,
+    "acAndAttack": -4
+  }
+]
