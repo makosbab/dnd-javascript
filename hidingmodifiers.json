@@ -1,0 +1,34 @@
+[
+    {
+        "size" : "Apró",
+        "modifier" : 16
+    },
+    {
+        "size" : "Pöttöm",
+        "modifier" : 12
+    },
+    {
+        "size" : "Pici",
+        "modifier" : 8
+    },
+    {
+        "size" : "Kicsi",
+        "modifier" : 4
+    },
+    {
+        "size" : "Nagy",
+        "modifier" : -4
+    },
+        {
+        "size" : "Hatalmas",
+        "modifier" : -8
+    },
+        {
+        "size" : "Óriási",
+        "modifier" : -12
+    },
+    {
+        "size" : "Gigászi",
+        "modifier" : -16
+    }
+]
