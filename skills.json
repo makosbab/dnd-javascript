@@ -1,30 +1,20 @@
 [
     {
         "name": "Rejtőzködés",
-        "desc" : "",
+        "desc" : null,
         "keyAbility": "Ügyesség",
         "trainedOnly": false,
         "armorCheckPenalty": true,
         "check":
         [
             "Rejtőzködés próbádat blablabla\n\nqetqtqtqt\nqetqetqetqetqe\nqtqetqetqetqetqe\n\\",
-            [
-                ["Apró",16],
-                ["Pöttöm",12],
-                ["Pici",8],
-                ["Kicsi",4],
-                ["Nagy",-4],
-                ["Hatalmas",-8],
-                ["Óriási",-12],
-                ["Gigászi",-16]
-            ]
+            ""
         ], 
-        "action" : "",
-        "tryAgain" : "",
-        "special" : "",
-        "synergy" : "",
-        "restriction" : "",
-        "untrained" : "",
-        "tables" : []
+        "action" : null,
+        "tryAgain" : null,
+        "special" : null,
+        "synergy" : null,
+        "restriction" : null,
+        "untrained" : null
   }
 ]
