@@ -1,0 +1,38 @@
+[
+  {
+    "oozeSize": "Apró",
+    "hpBonus": 0
+  },
+  {
+    "oozeSize": "Pöttöm",
+    "hpBonus": 0
+  },
+  {
+    "oozeSize": "Pici",
+    "hpBonus": 0
+  },
+  {
+    "oozeSize": "Kicsi",
+    "hpBonus": 5
+  },
+  {
+    "oozeSize": "Közepes",
+    "hpBonus": 10
+  },
+  {
+    "oozeSize": "Nagy",
+    "hpBonus": 15
+  },
+  {
+    "oozeSize": "Óriási",
+    "hpBonus": 20
+  },
+  {
+    "oozeSize": "Hatalmas",
+    "hpBonus": 30
+  },
+  {
+    "oozeSize": "Gigászi",
+    "hpBonus": 40
+  }
+]
