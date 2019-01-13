@@ -4,33 +4,12 @@
       "size": "Óriási",
       "type": "Rendellenesség",
       "subtype": "Vízi",
-      "abilities":
-      [
-        {
-          "name" : "Erő",
-          "score" : 26
-        },
-        {
-          "name" : "Ügyesség",
-          "score" : 12
-        },
-        {
-          "name" : "Állóképesség",
-          "score" : 20
-        },
-        {
-          "name" : "Intelligencia",
-          "score" : 15
-        },
-        {
-          "name" : "Bölcsesség",
-          "score" : 17
-        },
-        {
-          "name" : "Karizma",
-          "score" : 17
-        }
-      ],
+      "str" : 26,
+      "dex" : 12,
+      "con" : 20,
+      "int" : 15,
+      "wis" : 17,
+      "char" : 17,
       "skills": 
       [
         {
@@ -40,44 +19,26 @@
       ],
       "hitDice": 
       {
-        "numOfHitDice" : "8",
-        "typeOfHitDice" : "d8",
+        "count" : "8",
+        "hdType" : "d8",
         "bonus" : 40,
         "avgHitPoints": 76
       },
       "initiative": 1,
-      "armorClass": 
-      {
-        "class": 16,
-        "modifiers" : 
-        [
-          [-2, "termet"], [1, "Ügy"],  [7, "természetes"]
-        ]
-      },
-      "savingThrows":
+      "armorClass": 16,
+      "fortitude" : 7,
+      "reflex" : 3,
+      "will" : 11,
+      "challengeRating": 7,
+      "attacks": 
       [
         {
-          "type": "Szívósság",
-          "baseBonus" : 7
-        },
-        {
-          "type": "Gyorsaság",
-          "baseBonus" : 3
-        },
-        {
-          "type": "Akarat",
-          "baseBonus" : 11
+          "count": 4,
+          "name": "Csáp",
+          "bonus" : 12,
+          "form" : "közelharci"
         }
       ],
-      "challengeRating": 7,
-      "attacks":
-      {
-        "numOfAttacks": 4,
-        "name": "Csáp",
-        "bonus" : 12,
-        "form" : "kh."
-        
-      },
       "damage": "Csáp 1d6+9 és átalakítás",
       "spaceReach":
       {
@@ -92,13 +53,13 @@
       "advancement":
       [
         {
-          "hitDiceMin": 9,
-          "hitDiceMax": 16,
+          "rangeMin": 9,
+          "rangeMax": 16,
           "version": "Óriási"
         },
         {
-          "hitDiceMin": 17,
-          "hitDiceMax": 24,
+          "rangeMin": 17,
+          "rangeMax": 24,
           "version": "Hatalmas"
         } 
     ]
