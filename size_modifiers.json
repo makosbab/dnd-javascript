@@ -1,0 +1,65 @@
+[
+  {
+    "size": "Apró",
+    "attackAndAcMod": 8,
+    "grappleMod" : -16,
+    "hideMod" : 16,
+    "carryCapMod" : 0.125
+  },
+  {
+    "size": "Pöttöm",
+    "attackAndAcMod": 4,
+    "grappleMod" : -12,
+    "hideMod" : 12,
+    "carryCapMod" : 0.25
+  },
+  {
+    "size": "Pici",
+    "attackAndAcMod": 2,
+    "grappleMod" : -8,
+    "hideMod" : 8,
+    "carryCapMod" : 0.5
+  },
+  {
+    "size": "Kicsi",
+    "attackAndAcMod": 1,
+    "grappleMod" : -4,
+    "hideMod" : 4,
+    "carryCapMod" : 0.75
+  },
+  {
+    "size": "Közepes",
+    "attackAndAcMod": 0,
+    "grappleMod" : 0,
+    "hideMod" : 0,
+    "carryCapMod" : 1
+  },
+  {
+    "size": "Nagy",
+    "attackAndAcMod": -1,
+    "grappleMod" : 4,
+    "hideMod" : -4,
+    "carryCapMod" : 2
+  },
+  {
+    "size": "Óriási",
+    "attackAndAcMod": -2,
+    "grappleMod" : 8,
+    "hideMod" : -8,
+    "carryCapMod" : 4
+  },
+  {
+    "size": "Hatalmas",
+    "attackAndAcMod": -4,
+    "grappleMod" : 12,
+    "hideMod" : -12,
+    "carryCapMod" : 8
+  },
+  {
+    "size": "Gigászi",
+    "attackAndAcMod": -8,
+    "grappleMod" : 16,
+    "hideMod" : -16,
+    "carryCapMod" : 16
+  }
+]
