@@ -1,70 +1,310 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DnD Monster Advancer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-    <!--<script type="text/javascript" src="szornyek.json"></script> -->
-    <script src="roll.js"></script>
-    <script src="advancer.js"></script>
-    <script type="text/javascript">
-    // Retrieve
-    var MongoClient = require('mongodb').MongoClient;
-
-    // Connect to the db
-    MongoClient.connect("mongodb://localhost:27017/testdb", function(err, client) {
-    if(!err) {
-        var db = client.db("testdb")  
-        console.log("We are connected");
-        var collection = db.collection('monsters');
-        var oneMonster = collection.findOne({"name" : "Aboleth"}, function(err, result){
-            console.log(result.abilities);
-        });
-        
-    }
-    });
-    fetch('monsters.json').then(function(response){
-        return response.json()
-        }
-    ).then(function (json) {
-        var monster = json[0];
-        monster.hitPoints = monster.hitDice.avgHitPoints;
-        monster.abilities.forEach(ability => {
-            ability.modifier = (ability.score) ? Math.floor((ability.score - 10) / 2) : null;
-        });
-        monster.baseAttackModifier = function(){
-            let lookup = creatureImprovement.find(function(impr){
-                return impr.type == monster.type;
-            });
-            return Math.floor(monster.hitDice.numOfHitDice * lookup.attackBonus);
-        }
-        monster.attackModifierMelee = monster.baseAttackModifier() + monster.abilities[0].modifier + sizeModifiers[5].sizeModifier;
-        adv = new Advancer(monster);
-        console.log(adv.monster)
-
-        //adv.advanceMonster(19);
-    })
-        
-/*         var found = regexDobas.exec("8d6+45");
-        regexDobas.lastIndex = 0;
-        var dobas = new Dobas(found[1], found[2], found[3], found[4]);
-        var tulajdonsag = new Tulajdonsag("Áll", 19);
-        tulajdonsag.ertek = 28;
-
-        var tesztSzorny = monsters[0];
-        tesztSzorny.szint = regexDobas.exec(tesztSzorny.eletero_dobas.dobas)[1];
-        regexDobas.lastIndex = 0;
-        //tesztSzorny.eletero_dobas.dobas
-        fejlessz(tesztSzorny, 21) */
-    </script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Document</title>
 </head>
+
 <body>
-<form>
-    
-</form>
-    
+  <div class="field has-addons has-addons-centered">
+    <p class="control">
+      <span class="select">
+        <select>
+          <option>szintje</option>
+          <option>kih. értéke</option>
+        </select>
+      </span>
+    </p>
+    <p class="control">
+      <input class="input" type="text" placeholder="keresési érték">
+    </p>
+    <p class="control">
+      <a class="button is-dark">
+        Keress!
+      </a>
+    </p>
+  </div>
+  <div class="columns">
+    <div class="column is-fourth">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Tulajdonságok
+          </p>
+        </header>
+        <div class="card-content">
+          <table class="table is-hoverable is-fullwidth is-striped">
+            <thead>
+              <tr>
+                <th><abbr title="Tulajdonság">Tul.</abbr></th>
+                <th>Pont</th>
+                <th><abbr title="Módosító">Mód.</abbr></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Erő</td>
+                <td>13</td>
+                <td>+1</td>
+              </tr>
+              <tr>
+                <td>Ügy.</td>
+                <td>10</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Áll.</td>
+                <td>15</td>
+                <td>+2</td>
+              </tr>
+              <tr>
+                <td>Int.</td>
+                <td>8</td>
+                <td>-1</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- <div class="field">
+            <label>Erő</label>
+              
+              <p class="control">
+                <input type=”text” class="input is-small is-primary" name=”meret”>
+              </p>
+              <p class="control">
+                <span class="tag is-dark">+1</span>
+              </p>
+
+
+          </div>
+          <div class="field is-grouped">
+            <div class="field">
+              <label>Ügy.</label>
+              <div class="control">
+                <input type=”text” class="input is-small is-light" name=”oldal_eleres”>
+              </div>
+            </div>
+          </div>
+          <div class="field has-addons">
+            <label>Áll.</label>
+            <div class="control">
+              <input type=”text” class="input is-small is-dark" name=”jellem”>
+            </div>
+            <div class="control">
+              <a class="button is-static is-small ">
+                +4
+              </a>
+            </div>
+          </div>
+          <div class="field is-grouped">
+            <label>Int.</label>
+            <div class="control">
+              <input type=”text” class="input is-small is-dark" name=”Sebesseg_gyalog”>
+            </div>
+            <span class="tag is-dark">+3</span>
+          </div>
+          <div class="field">
+            <label>Böl.</label>
+            <div class="control">
+
+              <input type=”text” class="input is-small is-dark" name=”Sebesseg_uszva”>
+            </div>
+          </div>
+          <div class="field">
+            <label>Kar.</label>
+            <div class="control">
+              <input type=”text” class="input is-small is-dark" name=”Sebesseg_furva”>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="column is-fourth">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Karakter adottságai
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="field">
+            <label>Méret:</label>
+            <div class="control">
+              <input type=”text” class="input is-small is-primary" name=”meret”>
+            </div>
+          </div>
+          <div class="field">
+            <label>Oldal elérés:</label>
+            <div class="control">
+
+              <input type=”text” class="input is-small is-primary" name=”oldal_eleres”>
+            </div>
+          </div>
+          <div class="field">
+            <label>Jellem:</label>
+            <div class="control">
+              <input type=”text” class="input is-small is-primary" name=”jellem”>
+            </div>
+          </div>
+          <div class="field">
+            <label>Sebesség:</label>
+            <div class="control">
+              <input type=”text” class="input is-small is-primary" name=”Sebesseg_gyalog”>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="column is-fourth">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Mentődobások
+          </p>
+        </header>
+        <div class="card-content">
+            <table class="table is-hoverable is-fullwidth is-striped">
+                <thead>
+                  <tr>
+                    <th>Mentő</th>
+                    <th>Pont</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Szívósság</td>
+                    <td>13</td>
+                  </tr>
+                  <tr>
+                    <td>Gyorsaság</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td>Akaraterő</td>
+                    <td>15</td>
+                  </tr>
+                </tbody>
+              </table>
+          <!-- <div class="field">
+            <label>Szívósság</label>
+            <div class="control">
+              <input type=”text” class="input is-small is-primary" name=”meret”>
+            </div>
+          </div>
+          <div class="field">
+            <label>Gyorsaság</label>
+            <div class="control">
+
+              <input type=”text” class="input is-small is-primary" name=”oldal_eleres”>
+            </div>
+          </div>
+          <div class="field">
+            <label>Akaraterő:</label>
+            <div class="control">
+              <input type=”text” class="input is-small is-primary" name=”jellem”>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="column is-fourth">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Képességek
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="tags">
+            <span class="tag">Képesség1</span>
+            <span class="tag">Képesség2</span>
+            <span class="tag">Képesség3</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <header>
+          <p class="card-header-title">
+            Szakértelmek (jártasságok)
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="field is-grouped is-grouped-multiline">
+            <div class="control">
+              <div class="tags has-addons">
+                <span class="tag is-dark">Akrobatika</span>
+                <span class="tag is-info">+10</span>
+              </div>
+            </div>
+
+            <div class="control">
+              <div class="tags has-addons">
+                <span class="tag is-dark">Álcázás</span>
+                <span class="tag is-danger">-2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <h1 class="subtitle is-h3">Hello there!</h1>
+  <div class="block">
+    <button class="button is-primary">Button</button>
+    <button class="button is-info">Button</button>
+    <button class="button is-warning">Button</button>
+    <button class="button is-danger">Button</button>
+    <button class="button is-primary is-outlined">Button</button>
+    <button class="button is-info is-outlined">Button</button>
+    <button class="button is-warning is-outlined">Button</button>
+    <button class="button is-danger is-outlined">Button</button>
+    <button class="button is-primary is-inverted">Button</button>
+    <button class="button is-info is-inverted">Button</button>
+    <button class="button is-warning is-inverted">Button</button>
+    <button class="button is-danger is-inverted">Button</button>
+  </div>
+  <div class="block">
+    <div class="box">
+      <p>
+        Lorem ipsum
+      </p>
+    </div>
+  </div>
+  <div class="block">
+    <div class="notification">
+      <button class="delete"></button>
+      <p>Notification area is here...</p>
+    </div>
+    <div class="notification is-primary">
+      <button class="delete"></button>
+      <p>Notification area is here...</p>
+    </div>
+    <div class="notification is-info">
+      <button class="delete"></button>
+      <p>Notification area is here...</p>
+    </div>
+    <div class="notification is-success">
+      <button class="delete"></button>
+      <p>Notification area is here...</p>
+    </div>
+    <div class="notification is-warning">
+      <button class="delete"></button>
+      <p>Notification area is here...</p>
+    </div>
+    <div class="notification is-danger">
+      <button class="delete"></button>
+      <p>Notification area is here...</p>
+    </div>
+  </div>
+  </div>
+  <!--container vége-->
 </body>
+
 </html>
