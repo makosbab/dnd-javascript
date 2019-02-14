@@ -112,7 +112,7 @@ var aboleth = {
 	"specialAttacks" : [
 		"Átalakítás",
 		"Pszionika",
-		"Rlabszolgaság"
+		"Rabszolgaság"
 	],
 	"specialQualities" : [
 		"Nyálkafelhő"
