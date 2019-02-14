@@ -1,5 +1,8 @@
 <template>
   <div class="card">
+    <header class="card-header">
+      <p class="card-header-title">Tulajdonságok</p>
+    </header>
     <div class="card-content">
       <table class="table is-hoverable is-fullwidth is-striped">
         <thead>

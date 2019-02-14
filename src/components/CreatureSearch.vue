@@ -9,7 +9,6 @@
           <label class="label">Feltétel:</label>
         </div>
         <div class="field-body">
-          
             <div class="control">
               <label class="radio">
                 <input type="radio" name="question">
@@ -20,7 +19,6 @@
                 Szint szerint
               </label>
             </div>
-          
         </div>
       </div>
       <div class="field has-addons has-addons-centered">
