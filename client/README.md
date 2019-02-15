@@ -1,4 +1,4 @@
-# dnd-javascript
+# client
 
 ## Project setup
 ```
