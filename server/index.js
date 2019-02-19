@@ -1,16 +1,17 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require("cors");
-//var mongojs = require('mongojs');
-
+var path = require('path');
 
 const expressApp = express();
+const searchRoute = require('./routes/api/search');
+const port = process.env.PORT || 5000;
 
 expressApp.use(bodyParser.json());
 expressApp.use(cors());
-
-const port = process.env.PORT || 5000;
+expressApp.use(express.static(path.join(__dirname, 'public')));
+expressApp.use('/api/search', searchRoute);
 
 expressApp.listen(port, () => {
-    console.log("Listening on port...");
+    console.log(`Listening on port ${port}!`);
 });
