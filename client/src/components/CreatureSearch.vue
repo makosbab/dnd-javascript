@@ -2,76 +2,113 @@
   <nav class="panel">
     <p class="panel-heading">Keresés</p>
     <div class="panel-block">
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">To</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <p class="control">
-              <input class="input" type="text" placeholder="pl.: farkas">
-            </p>
+      <form>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Lény neve</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input
+                  class="input is-primary"
+                  type="text"
+                  placeholder="pl.: farkas"
+                >
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="panel-block">
-      <p class="control has-icons-left">
-        <input class="input is-small" type="text" placeholder="search">
-        <span class="icon is-small is-left">
-          <i class="fas fa-search" aria-hidden="true"></i>
-        </span>
-      </p>
-    </div>
-    <p class="panel-tabs">
-      <a class="is-active">all</a>
-      <a>public</a>
-      <a>private</a>
-      <a>sources</a>
-      <a>forks</a>
-    </p>
-    <a class="panel-block is-active">
-      <span class="panel-icon">
-        <i class="fas fa-book" aria-hidden="true"></i>
-      </span>
-      bulma
-    </a>
-    <a class="panel-block">
-      <span class="panel-icon">
-        <i class="fas fa-book" aria-hidden="true"></i>
-      </span>
-      marksheet
-    </a>
-    <a class="panel-block">
-      <span class="panel-icon">
-        <i class="fas fa-book" aria-hidden="true"></i>
-      </span>
-      minireset.css
-    </a>
-    <a class="panel-block">
-      <span class="panel-icon">
-        <i class="fas fa-book" aria-hidden="true"></i>
-      </span>
-      jgthms.github.io
-    </a>
-    <a class="panel-block">
-      <span class="panel-icon">
-        <i class="fas fa-code-branch" aria-hidden="true"></i>
-      </span>
-      daniellowtw/infboard
-    </a>
-    <a class="panel-block">
-      <span class="panel-icon">
-        <i class="fas fa-code-branch" aria-hidden="true"></i>
-      </span>
-      mojs
-    </a>
-    <label class="panel-block">
-      <input type="checkbox">
-      remember me
-    </label>
-    <div class="panel-block">
-      <button class="button is-link is-outlined is-fullwidth">reset all filters</button>
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label">Típus</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="select">
+                <select>
+                  <option hidden selected>Válassz típust</option>
+                  <option v-for="(types, index) in creatureTypes" :key='index'>{{types.type}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Kihívási érték</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                <input class="input" type="text" placeholder="Name">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control is-expanded has-icons-left has-icons-right">
+                <input
+                  class="input is-success"
+                  type="email"
+                  placeholder="Email"
+                  value="alex@smith.com"
+                >
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label">Kihívási érték</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="select">
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label">Kül. tulajd.</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                  <input type="checkbox">
+                  Mágiahasználó
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label"></div>
+          <div class="field-body">
+            <div class="field is-grouped is-grouped-centered">
+              <div class="control">
+                <button class="button is-link">Keresés</button>
+              </div>
+              <div class="control">
+                <button class="button is-light">Törlés</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
   </nav>
   <!-- <div class="card">
@@ -140,7 +177,17 @@
 
 <script>
 export default {
-  name: "CreatureSearch"
+  name: "CreatureSearch",
+
+  data() {
+    return {
+      creatureTypes : 
+      [
+        {type: 'Alakváltó'},
+        {type: 'Bestia'} 
+      ]
+    }
+  }
 };
 </script>
 
