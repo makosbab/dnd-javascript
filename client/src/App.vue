@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <CreatureSearch/>
-    <div class="columns">
+    
+    <Sheet />
+    <!-- <div class="columns">
       <div class="column is-fourth">
         <BasicInformation />
         <Feats />
@@ -12,27 +14,24 @@
         <br/>
         <SavingThrows />
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import CreatureSearch from "./components/CreatureSearch.vue";
-import BasicInformation from "./components/BasicInformation.vue";
-import AbilityScores from "./components/AbilityScores.vue";
-import SavingThrows from "./components/SavingThrows.vue";
-import Skills from "./components/Skills.vue";
-import Feats from "./components/Feats.vue";
+import Sheet from "./components/Sheet.vue";
 
 export default {
   name: "app",
   components: {
-    BasicInformation,
     CreatureSearch,
-    AbilityScores,
-    SavingThrows,
-    Skills,
-    Feats
+    Sheet
+    // BasicInformation,
+    // AbilityScores,
+    // SavingThrows,
+    // Skills,
+    // Feats
   }
 };
 </script>

@@ -20,7 +20,16 @@ async function loadCreatures(){
 router.get('/', async (req, res)=>{
 
     const creatures = await loadCreatures();
-    res.send(await creatures.find({name: 'Aboleth'}).toArray());
+
+    var criteria = {
+        'name': {'$regex' : /aboleth/, '$options' : 'i'},
+        'type' : '',
+        'challengeRating': {$gt : 1},
+        'size' : 'Óriási'
+    };
+    res.send(await creatures.find(
+        criteria
+        ).toArray());
 
 })
 
