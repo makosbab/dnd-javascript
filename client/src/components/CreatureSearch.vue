@@ -2,7 +2,7 @@
   <nav class="panel">
     <p class="panel-heading">Keresés</p>
     <div class="panel-block">
-      <form>
+      <form @submit.prevent="search()">
         <div class="field is-horizontal">
           <div class="field-label is-normal">
             <label class="label">Lény neve</label>
@@ -10,7 +10,12 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input is-primary" type="text" placeholder="pl.: farkas">
+                <input
+                  v-model="criteria.name"
+                  class="input is-primary"
+                  type="text"
+                  placeholder="pl.: farkas"
+                >
               </div>
             </div>
           </div>
@@ -22,8 +27,8 @@
           <div class="field-body">
             <div class="field">
               <div class="select">
-                <select>
-                  <option hidden selected>Válassz típust</option>
+                <select v-model="sType">
+                  <option disabled hidden :value="''">Válassz típust</option>
                   <option v-for="(types, index) in creatureTypes" :key="index">{{types}}</option>
                 </select>
               </div>
@@ -52,9 +57,10 @@
           <div class="field-body">
             <div class="field">
               <div class="select">
-                <select>
-                  <option>1</option>
-                  <option>2</option>
+                <select v-model="criteria.challengeRating">
+                  <option v-for="(rating, key) in ratings" :key='key'>{{rating}}</option>
+                  <!-- <option>1</option>
+                  <option>2</option> -->
                 </select>
               </div>
             </div>
@@ -102,13 +108,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr v-for="(creature, index) in searchResults" :key="index">
             <td>
-              <a href>Aboleth</a>
+              <a href>{{creature.name}}</a>
             </td>
-            <td>Óriási</td>
-            <td>Rendellenesség</td>
-            <td>7</td>
+            <td>{{creature.size}}</td>
+            <td>{{creature.type}}</td>
+            <td>{{creature.challengeRating}}</td>
           </tr>
         </tbody>
       </table>
@@ -117,11 +123,21 @@
 </template>
 
 <script>
+
+import _ from 'lodash'
 export default {
   name: "CreatureSearch",
 
   data() {
     return {
+      criteria : {
+        name : '',
+        size : '',
+        type : '',
+        challengeRating: 0
+      },
+      sName : '', 
+      sType : '',
       creatureTypes: [
         "Alakváltó",
         "Állat",
@@ -130,10 +146,31 @@ export default {
         "Élőhalott",
         "Mágikus bestia"
       ],
-      sizes : [
-        "Közepes", "Nagy", "Óriási"
+      sizes: ["Közepes", "Nagy", "Óriási"],
+      ratings: _.range(1, 21),
+      searchResults: [
+        {
+          name: "Aboleth",
+          size: "Óriási",
+          type: "Rendellenesség",
+          challengeRating: 7
+        },
+        {
+          name: "Otyugh",
+          size: "Óriási",
+          type: "Rendellenesség",
+          challengeRating: 7
+        }
       ]
     };
+  },
+
+  methods: {
+    search() {
+      //const api = 'http://localhost:8080/api/search';
+      
+      alert(this.criteria.challengeRating)
+    }
   }
 };
 </script>

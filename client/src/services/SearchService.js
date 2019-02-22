@@ -1,8 +1,8 @@
 import Api from '@/services/Api';
 
 export default {
-    register(credentials){
+    searchForCreature(criteria){
         //post to searh endpoint on backend side
-        return Api.post('api/search', searchEntry)
+        return Api().get('search', criteria)
     }
 }

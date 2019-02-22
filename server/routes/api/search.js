@@ -27,9 +27,13 @@ router.get('/', async (req, res)=>{
         'challengeRating': {$gt : 1},
         'size' : 'Óriási'
     };
-    res.send(await creatures.find(
-        criteria
-        ).toArray());
+
+    res.send({
+        message: "hi!"
+    });
+    // res.send(await creatures.find(
+    //     criteria
+    //     ).toArray());
 
 })
 
