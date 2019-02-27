@@ -98,7 +98,8 @@
     </div>
     <!-- Panel block-->
     <div class="panel-block">
-      <table class="table is-hoverable is-fullwidth is-striped">
+      <table class="table is-bordered is-hoverable is-fullwidth is-striped">
+        <caption class="is-size-5">Találatok</caption>
         <thead>
           <tr>
             <th>lény neve</th>
@@ -177,4 +178,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+
 </style>
