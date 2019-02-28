@@ -2,7 +2,7 @@
   <nav class="panel">
     <p class="panel-heading">Keresés</p>
     <div class="panel-block">
-      <form @submit.prevent="search()">
+      <form>
         <div class="field is-horizontal">
           <div class="field-label is-normal">
             <label class="label">Lény neve</label>
@@ -11,7 +11,7 @@
             <div class="field">
               <div class="control">
                 <input
-                  v-model="criteria.name"
+                  v-model="name"
                   class="input is-primary"
                   type="text"
                   placeholder="pl.: farkas"
@@ -27,7 +27,7 @@
           <div class="field-body">
             <div class="field">
               <div class="select">
-                <select v-model="sType">
+                <select v-model="type">
                   <option disabled hidden :value="''">Válassz típust</option>
                   <option v-for="(types, index) in creatureTypes" :key="index">{{types}}</option>
                 </select>
@@ -42,7 +42,7 @@
           <div class="field-body">
             <div class="field">
               <div class="select">
-                <select>
+                <select v-model="size">
                   <option hidden selected>Válassz méretet</option>
                   <option v-for="(size, index) in sizes" :key="index">{{size}}</option>
                 </select>
@@ -57,7 +57,7 @@
           <div class="field-body">
             <div class="field">
               <div class="select">
-                <select v-model="criteria.challengeRating">
+                <select v-model="challengeRating">
                   <option v-for="(rating, key) in ratings" :key='key'>{{rating}}</option>
                   <!-- <option>1</option>
                   <option>2</option> -->
@@ -86,7 +86,10 @@
           <div class="field-body">
             <div class="field is-grouped is-grouped-centered">
               <div class="control">
-                <button class="button is-success">Keresés</button>
+                <button 
+                class="button is-success"
+                @click="search"
+                >Keresés</button>
               </div>
               <div class="control">
                 <button class="button is-danger" type="reset">Törlés</button>
@@ -96,7 +99,7 @@
         </div>
       </form>
     </div>
-    <!-- Panel block-->
+    <!-- Panel block vége-->
     <div class="panel-block">
       <table class="table is-bordered is-hoverable is-fullwidth is-striped">
         <caption class="is-size-5">Találatok</caption>
@@ -126,19 +129,17 @@
 <script>
 
 import _ from 'lodash'
+import SearchService from '@/services/SearchService'
 export default {
   name: "CreatureSearch",
 
   data() {
     return {
-      criteria : {
-        name : '',
-        size : '',
-        type : '',
-        challengeRating: 0
-      },
-      sName : '', 
-      sType : '',
+
+      name : '',
+      size : '',
+      type : '',
+      challengeRating: 0,
       creatureTypes: [
         "Alakváltó",
         "Állat",
@@ -147,7 +148,7 @@ export default {
         "Élőhalott",
         "Mágikus bestia"
       ],
-      sizes: ["Közepes", "Nagy", "Óriási"],
+      sizes: ["Közepes", "Nagy", "Óriási", "Hatalmas"],
       ratings: _.range(1, 21),
       searchResults: [
         {
@@ -166,11 +167,34 @@ export default {
     };
   },
 
+  //Amikor ez a Vue komponens csatolódik az oldalhoz
+  // mounted() {
+  //   setTimeout(()=>{
+  //     this.name = "Nyenyec"
+  //   },1000)
+  // },
+
+  // //Figyelő beállítása
+  // watch: {
+  //   name (value) {
+  //     console.log(`Value of name has changed to ${value}`)
+  //   }
+  // },
+
+  // Elérni, hogy elinduljon a post request
+  // this.searchResults = await PostService.getPosts();
+
   methods: {
-    search() {
+    async search() {
       //const api = 'http://localhost:8080/api/search';
       
-      alert(this.criteria.challengeRating)
+      const response = await SearchService.searchCreatures({
+        name: this.name,
+        type: this.type,
+        size: this.size,
+        challengeRating: this.challengeRating
+      })
+      console.log(response.data)
     }
   }
 };

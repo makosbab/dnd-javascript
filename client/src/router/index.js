@@ -5,6 +5,7 @@ import Sheet from '../components/Sheet.vue'
 
 Vue.use(Router);
 
+// itt mondjuk meg, hogyan érhetjük el az útvonalakat
 export default new Router({
   routes: [
       {

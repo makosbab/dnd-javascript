@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-//Give back connector 
+// Axios konnektor, amely csatlakozik a backendhez a baseURL-en keresztül
 export default () =>{
     return axios.create({
         baseURL : `http://localhost:5000`
