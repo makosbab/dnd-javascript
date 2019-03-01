@@ -143,6 +143,7 @@ export default {
       creatureTypes: [
         "Alakváltó",
         "Állat",
+        "Külvilági",
         "Rendellenesség",
         "Bestia",
         "Élőhalott",
@@ -151,18 +152,19 @@ export default {
       sizes: ["Közepes", "Nagy", "Óriási", "Hatalmas"],
       ratings: _.range(1, 21),
       searchResults: [
-        {
-          name: "Aboleth",
-          size: "Óriási",
-          type: "Rendellenesség",
-          challengeRating: 7
-        },
-        {
-          name: "Otyugh",
-          size: "Óriási",
-          type: "Rendellenesség",
-          challengeRating: 7
-        }
+
+        // {
+        //   name: "Aboleth",
+        //   size: "Óriási",
+        //   type: "Rendellenesség",
+        //   challengeRating: 7
+        // },
+        // {
+        //   name: "Otyugh",
+        //   size: "Óriási",
+        //   type: "Rendellenesség",
+        //   challengeRating: 7
+        // }
       ]
     };
   },
@@ -194,7 +196,8 @@ export default {
         size: this.size,
         challengeRating: this.challengeRating
       })
-      console.log(response.data)
+      
+      this.searchResults = response.data;
     }
   }
 };
